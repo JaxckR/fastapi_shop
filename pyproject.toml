@@ -1,0 +1,37 @@
+[project]
+name = "dah"
+version = "0.1.0"
+description = ""
+authors = [
+    { name = "Jaxck", email = "losofst@gmail.com" }
+]
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi (>=0.116.0,<0.117.0)",
+    "uvicorn (>=0.35.0,<0.36.0)",
+    "orjson (>=3.10.18,<4.0.0)",
+    "dishka (>=1.6.0,<2.0.0)",
+    "sqlalchemy[asyncio] (>=2.0.41,<3.0.0)",
+    "alembic (>=1.16.2,<2.0.0)",
+    "psycopg[binary] (>=3.2.9,<4.0.0)"
+]
+
+[tool.poetry]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.4.1"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.pytest.ini_options]
+pythonpath = [".", 'src']
+testpaths = ["tests/"]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "session"
+asyncio_default_test_loop_scope = "session"
