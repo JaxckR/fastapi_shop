@@ -4,6 +4,9 @@ from typing import AsyncIterator
 from fastapi import FastAPI
 from fastapi.responses import ORJSONResponse
 
+from dah.presentation.http.v1.common.setup_routes import setup_routes
+from dah.presentation.http.v1.routes.jinja2 import setup_static_root
+
 
 @asynccontextmanager
 async def lifespan(app: FastAPI) -> AsyncIterator[None]:
@@ -17,8 +20,9 @@ def get_app() -> FastAPI:
         description="Shop site",
         version="1.0.0",
         lifespan=lifespan,
-        root_path="/api",
         default_response_class=ORJSONResponse,
     )
+    setup_routes(app)
+    setup_static_root(app)
 
     return app
