@@ -5,7 +5,7 @@ from dah.presentation.http.v1.routes.jinja2 import templates
 
 router = APIRouter(
     prefix="/healthcheck",
-    tags=["healthcheck"],
+    tags=["Healthcheck"],
 )
 
 
@@ -19,7 +19,7 @@ async def healthcheck(
         request: Request,
 ):
     return templates.TemplateResponse(
-        "index.html",
+        "base.html",
         {
             "request": request,
         }

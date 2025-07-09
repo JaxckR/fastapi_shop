@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+
+{% block links %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+{% endblock %}
+
+
+{% block main %}
+<div class="row">
+    <h1 class="text-center">Catalog</h1>
+</div>
+
+<div class="row mb-3 mt-1 ms-1">
+    <button class="filter-button rounded-circle d-flex justify-content-center align-items-center"
+            style="height: 50px; width: 50px;" id="filter-button">
+        <i class="fa-solid fa-filter"></i>
+    </button>
+    <div class="filter-list mt-4 ms-3" id="filter-list">
+        <div class="list-group" style="width: 250px;">
+            <a class="list-group-item">Filters</a>
+            <a class="list-group-item list-group-item-action active" href="#">By price</a>
+            <a class="list-group-item list-group-item-action" href="#">By news</a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3 col-6 mb-5">
+        <a href="https://vk.com" class="undecorated-a">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt1.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt2.jpg') }}" alt="" class="square-image">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <p class="m-0" style="font-size: 20px;">3 700 RUB</p>
+            <p class="m-0" style="font-size: 20px;">T-shirt dah</p>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-5">
+        <a href="https://vk.com" class="undecorated-a">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt1.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt2.jpg') }}" alt="" class="square-image">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <p class="m-0" style="font-size: 20px;">3 700 RUB</p>
+            <p class="m-0" style="font-size: 20px;">T-shirt dah</p>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-5">
+        <a href="https://vk.com" class="undecorated-a">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt1.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt2.jpg') }}" alt="" class="square-image">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <p class="m-0" style="font-size: 20px;">3 700 RUB</p>
+            <p class="m-0" style="font-size: 20px;">T-shirt dah</p>
+        </a>
+    </div>
+    <div class="col-md-3 col-6 mb-5">
+        <a href="https://vk.com" class="undecorated-a">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt1.jpg') }}" alt="" class="square-image">
+                    </div>
+                    <div class="swiper-slide">
+                        <img src="{{ url_for('static', path='t-shirt2.jpg') }}" alt="" class="square-image">
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+            <p class="m-0" style="font-size: 20px;">3 700 RUB</p>
+            <p class="m-0" style="font-size: 20px;">T-shirt dah</p>
+        </a>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+    const swiper = new Swiper('.swiper', {
+        loop: false,
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        spaceBetween: 10,
+    });
+</script>
+
+<script>
+    const filterButton = document.getElementById("filter-button");
+    const filterList = document.getElementById("filter-list");
+
+    filterButton.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isVisible = filterList.style.display === 'block';
+        filterList.style.display = isVisible ? "none" : "block";
+    })
+
+    filterList.addEventListener('click', (e) => {
+        e.stopPropagation();
+    })
+
+    document.onclick = function () {
+        filterList.style.display = "none";
+    };
+</script>
+{% endblock %}
