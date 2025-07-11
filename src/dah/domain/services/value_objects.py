@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from dah.domain.service.exceptions import (
+from dah.domain.services.exceptions import (
     EmptyPriceError,
     PriceNegativeError,
     EmptyNameError,
